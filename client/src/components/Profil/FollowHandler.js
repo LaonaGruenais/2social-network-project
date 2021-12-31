@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { followUser, unfollowUser } from '../../actions/user.actions';
+import { followUser, unfollowUser } from '../../actions/user.actions';
 import { isEmpty } from '../Utils';
 
 const FollowHandler = ({ idToFollow }) => {
@@ -8,12 +8,16 @@ const FollowHandler = ({ idToFollow }) => {
     const [isFollowed, setIsFollowed] = useState(false)
     const dispatch = useDispatch();
 
+    // Suivre une personne qui nous suis directement dans la liste des abonnés
     const handleFollow = () => {
-
+        dispatch(followUser(userData._id, idToFollow));
+        setIsFollowed(true);
     }
 
+    // Ne plus suivre une personne qui nous suis directement dans la liste des abonnés
     const handleUnfollow = () => {
-    
+        dispatch(unfollowUser(userData._id, idToFollow));
+        setIsFollowed(false);
     }
 
     useEffect(() => {
