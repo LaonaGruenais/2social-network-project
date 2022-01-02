@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import FollowHandler from '../Profil/FollowHandler';
 import { dateParser, isEmpty } from '../Utils';
+import LikeButton from './LikeButton';
 
 const Card = ({ post }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -73,7 +74,7 @@ const Card = ({ post }) => {
                                 />
                                 <span>{post.comments.length}</span>
                             </div>
-                            <h6>Like button</h6>
+                            <LikeButton post={post} />
                             <img src='./img/icons/share.svg' alt='share' />
                         </div>
                     </div>

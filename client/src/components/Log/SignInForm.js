@@ -13,6 +13,7 @@ const SignInForm = () => {
         axios({
             method: 'post',
             url: `${process.env.REACT_APP_API_URL}api/user/login`,
+            // headers: {"Access-Control-Allow-Origin": "*"},
             withCredentials: true,
             data: {
               email,
