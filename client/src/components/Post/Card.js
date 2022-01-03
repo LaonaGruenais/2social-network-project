@@ -5,12 +5,13 @@ import FollowHandler from '../Profil/FollowHandler';
 import { dateParser, isEmpty } from '../Utils';
 import LikeButton from './LikeButton';
 import DeleteCard from './DeleteCard';
+import CardComments from './CardComments';
 
 const Card = ({ post }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isUpdated, setIsUpdated] = useState(false);
     const [textUpdate, setTextUpdate] = useState(null);
-    // const [showComments, setShowComments] = useState(false);
+    const [showComments, setShowComments] = useState(false);
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
     const dispatch = useDispatch();
@@ -103,7 +104,7 @@ const Card = ({ post }) => {
                         <div className='card-footer'>
                             <div className='comment-icon'>
                                 <img
-                                    // onClick={() => setShowComments(!showComments)}
+                                    onClick={() => setShowComments(!showComments)}
                                     src="./img/icons/message1.svg"
                                     alt="comment"
                                 />
@@ -112,6 +113,7 @@ const Card = ({ post }) => {
                             <LikeButton post={post} />
                             <img src='./img/icons/share.svg' alt='share' />
                         </div>
+                        {showComments && <CardComments post={post} />}
                     </div>
                 </>
             )}
