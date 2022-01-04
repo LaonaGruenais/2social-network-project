@@ -5,7 +5,7 @@ import Thread from '../components/Thread';
 import Log from '../components/Log';
 import NewPostForm from '../components/Post/NewPostForm';
 import Trends from '../components/Trends';
-// import FriendsHint from '../components/Profil/FriendsHint';
+import FriendsHint from '../components/Profil/FriendsHint';
 
 const Home = () => {
   const uid = useContext(UidContext);
