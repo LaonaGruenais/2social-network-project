@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+
+  frontend: 
+    build:
+      context: ./client
+    volumes: 
+      - ./src:/app/src
+    ports: 
+      - 3000:3000
+  
+  backend: 
+    build: 
+      context: ./social-network-project
+    ports: 
+      - 4000:4000
+
